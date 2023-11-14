@@ -551,9 +551,19 @@ const urlLenCount = url => url.href.length;
 
 const urlLenHostname = url => url.hostname.length;
 
+const urlNbCountDollar = url => {
+    const urlString = url.href;
+    const foundDollar = urlString.match(/\$/g);
+    if (foundDollar) {
+        return foundDollar.length
+    } else {
+        return 0
+    }
+
+}
+
 function hasHttpsToken(url) {
     const access_token = new URLSearchParams(url.search)//.get('access_token');
-    console.log(access_token)
     return access_token;
 }
 
@@ -574,6 +584,11 @@ const url_checker = (dataSet) => {
         hasHttpsToken(urlTest) == data.https_token
             ? check.https_token = true
             : check.https_token = false
+
+        urlNbCountDollar(urlTest) == data.nb_dollar
+            ? check.nb_dollar = true
+            : check.nb_dollar = false
+
         result.push(check)
     }
     return result
