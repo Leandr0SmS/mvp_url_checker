@@ -23,7 +23,8 @@ url_data = Tag(
 
 @app.get('/', tags=[home_tag])
 def home():
-    """Redireciona para /openapi,
+    """
+    Redireciona para /openapi,
     tela que permite a escolha do estilo de documentação.
     """
     return redirect('/openapi')
@@ -32,7 +33,8 @@ def home():
 @app.get('/url_check', tags=[url_data],
          responses={"200": UrlChecked, "404": ErrorSchema})
 def get_url_predic(query: UrlTest):
-    """Recebe uma string url e retorna a url com a predição
+    """
+    Recebe uma string url e retorna a url com a predição
     """
     logger.debug("prevendo url")
 
