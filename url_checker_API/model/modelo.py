@@ -1,15 +1,20 @@
 import numpy as np
 import pickle
+import joblib
+import sklearn
 
 
 class Model:
     
     def carrega_modelo(path):
-        """Dependendo se o final for .pkl ou .joblib, carregamos de uma forma ou de outra
+        """
+        Carrega modelo do .pkl file
         """
         
         if path.endswith('.pkl'):
             model = pickle.load(open(path, 'rb'))
+        elif path.endswith('.joblib'):
+            model = joblib.load(path)
         else:
             raise Exception('Formato de arquivo não suportado')
         return model
@@ -35,5 +40,5 @@ class Model:
                 ])
 
         # Faremos o reshape para que o modelo entenda que estamos passando
-        diagnosis = model.predict(X_input.reshape(1, -1))
-        return int(diagnosis[0])
+        predict_phishing = model.predict(X_input.reshape(1, -1))
+        return int(predict_phishing[0])

@@ -5,6 +5,8 @@ import os
 
 # importando os elementos definidos no modelo
 from model.base import Base
+from model.url_check import UrlModel
+from model.modelo import Model
 
 
 db_path = "database/"
@@ -26,5 +28,5 @@ Session = sessionmaker(bind=engine)
 if not database_exists(engine.url):
     create_database(engine.url)
 
-    # cria as tabelas do banco, caso não existam
-    Base.metadata.create_all(engine)
+# cria as tabelas do banco, caso não existam
+Base.metadata.create_all(engine)

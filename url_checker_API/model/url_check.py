@@ -7,20 +7,20 @@ class UrlModel(Base):
 
     id_url = Column(Integer, primary_key=True)
     url_str = Column("url_str", String(500), unique=True, nullable=False)
-    length_url = Column("length_url", Integer, nullable=False),
-    length_hostname = Column("length_hostname", Integer, nullable=False),
-    nb_dots = Column("nb_dots", Integer, nullable=False),
-    nb_hyphens = Column("nb_hyphens", Integer, nullable=False),
-    nb_underscore = Column("nb_underscore", Integer, nullable=False),
-    nb_tilde = Column("nb_tilde", Integer, nullable=False),
-    nb_percent = Column("nb_percent ", Integer, nullable=False),
-    nb_slash = Column("nb_slash", Integer, nullable=False),
-    nb_colon = Column("nb_colon", Integer, nullable=False),
-    nb_comma = Column("nb_comma", Integer, nullable=False),
-    nb_semicolumn = Column("nb_semicolumn", Integer, nullable=False),
-    nb_dollar = Column("nb_dollar", Integer, nullable=False),
-    nb_www = Column("nb_www", Integer, nullable=False),
-    http_in_path = Column("http_in_path", Integer, nullable=False),
+    length_url = Column("length_url", Integer, nullable=False)
+    length_hostname = Column("length_hostname", Integer, nullable=False)
+    nb_dots = Column("nb_dots", Integer, nullable=False)
+    nb_hyphens = Column("nb_hyphens", Integer, nullable=False)
+    nb_underscore = Column("nb_underscore", Integer, nullable=False)
+    nb_tilde = Column("nb_tilde", Integer, nullable=False)
+    nb_percent = Column("nb_percent ", Integer, nullable=False)
+    nb_slash = Column("nb_slash", Integer, nullable=False)
+    nb_colon = Column("nb_colon", Integer, nullable=False)
+    nb_comma = Column("nb_comma", Integer, nullable=False)
+    nb_semicolumn = Column("nb_semicolumn", Integer, nullable=False)
+    nb_dollar = Column("nb_dollar", Integer, nullable=False)
+    nb_www = Column("nb_www", Integer, nullable=False)
+    http_in_path = Column("http_in_path", Integer, nullable=False)
     url_predic = Column(Integer, nullable=False)
 
 
