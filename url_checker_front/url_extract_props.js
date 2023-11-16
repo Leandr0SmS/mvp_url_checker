@@ -43,7 +43,11 @@ const checkerURL = (url) => {
     return result
 }
 
-console.log(checkerURL("https://www.dropbox.com/l/AABsArKdOw0Xm20ePPEw4Fd2__f1tVEhlv0"));
+console.log(
+    checkerURL(
+        "https://www.dropbox.com/l/AABsArKdOw0Xm20ePPEw4Fd2__f1tVEhlv0"
+        )
+    );
 
 
 const url_checker_test = (dataSet) => {
