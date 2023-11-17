@@ -5,7 +5,7 @@ import os
 
 # importando os elementos definidos no modelo
 from model.base import Base
-from model.url_check import UrlModel
+from model.url_model import UrlModel
 from model.modelo import Model
 
 

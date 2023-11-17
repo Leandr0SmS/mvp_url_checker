@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from model.url_check import UrlModel
+from model.url_model import UrlModel
 
 
 class UrlSchema(BaseModel):
