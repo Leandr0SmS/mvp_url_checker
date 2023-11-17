@@ -1,0 +1,54 @@
+@import "./base";
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+}
+
+#root {
+    min-height: 100svh;
+    min-height: 100vh;
+    @extend %center_elem_flex;
+    font-family: 'Kanit', sans-serif;
+}
+
+#title {
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+#url_form {
+    @extend %center_elem_flex;
+    gap: 0.5rem
+}
+
+.url_input {
+    width: 60rem;
+    padding: 1em 2em;
+    font-size: 1.2em;
+    border-radius: 1.3em;
+    border: 1px solid rgb(113, 113, 251);
+    font-family: 'Kanit', sans-serif;
+    font-weight: 200;
+    &:active, &:focus {
+        border: 2px solid rgb(113, 113, 251);
+        outline: none; // add this
+    }
+}
+
+#url_check_btn {
+    padding: 0.5em 4em;
+    font-size: 1em;
+    border-radius: 0.7em;
+    border: none;
+    background-color: aquamarine;
+    &:hover {
+        cursor: pointer;
+        background-color: bisque;
+        -webkit-transition: background-color 50ms linear;
+        -ms-transition: background-color 500ms linear;
+        transition: background-color 500ms linear;
+    }
+}
