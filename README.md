@@ -2,45 +2,27 @@
 
     API elaborada para conclusão da disciplina de Engenharia de Software para Sistemas Inteligentes da Pós graduação Engenharia de software da PUC Rio.
 
+## Descrição
+
 Este projeto aplica um modelo de classificação de machine learning para identificar URLs que tenham caracteristicas de Phishing.
 
 O projeto permite ao usuário:
 - Inserir/Excluir URL;
-- Receber previsão de malicioso ou verdadeiro.
+- Receber previsão de malicioso ou verdadeiro.s
 
-## Descrição
+## Conteúdo
 
-API implementada em Python e Flask
+- [API](./url_checker_API/)
+- [Front](./url_checker_front/)
+
+### Requerimentos
+
+- [Python instalado](https://www.python.org/downloads/)
 
 ## Iniciando
 
-### Dependências
-
-Será necessário:
-- [python](https://www.python.org/): Versão superior a 3.5
-- `requirements.txt` instalado.
-
-> É fortemente indicado o uso de ambientes virtuais do tipo: [virtual environments](https://docs.python.org/3/library/venv.html).
-
-### Instalando Requirements
-
-Instalar dependências descritas no arquivo `requirements.txt`.
-```
-(env)$ pip install -r requirements.txt
-```
-
-### Executando
-
-Executar o comando:
-```
-(env)$ flask run --host 0.0.0.0 --port 5000
-```
-
-Replit:
-
-[![Run on Repl.it](https://replit.com/badge/github/Leandr0SmS/puc_rio-mvp_1-back_end)](https://replit.com/new/github/Leandr0SmS/puc_rio-mvp_1-back_end)
-
-> **Banco de Dados** - Será iniciado e carregado com informações pré definidas.
+- Iniciar API conforme [README](./url_checker_API/README.md)
+- Após API estar rodando, inciar o arquivo index.html em um browser.
 
 ## Autor
  
