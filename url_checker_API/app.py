@@ -76,12 +76,13 @@ def predict(form: UrlToCheckSchema):
         dict: url_str and url_predic
     """
     
-    print(["form", form])
-    
+    print("Instanciando modelo...")
     # Carregando modelo
     ml_path = './ml_model/model_url_checker.joblib'
     modelo = Model.carrega_modelo(ml_path)
-    print("modelo OK!!")
+    print("Modelo Instanciado!!")
+    
+    predicao = Model.preditor(modelo, form)
     
     newUrl = UrlModel(
         url_str=form.url_str,
@@ -99,8 +100,7 @@ def predict(form: UrlToCheckSchema):
         nb_dollar=form.nb_dollar,
         nb_www=form.nb_www,
         http_in_path=form.http_in_path,
-        url_predic=Model.preditor(modelo, form)
-
+        url_predic=predicao
     )
     logger.debug(f"Adicionando url: '{newUrl.url_str}'")
     
@@ -110,7 +110,7 @@ def predict(form: UrlToCheckSchema):
         
         # Checando se paciente já existe na base
         if session.query(UrlModel).filter(newUrl.url_str == form.url_str).first():
-            error_msg = "Paciente já existente url na base :/"
+            error_msg = "Url já existente na base :/"
             logger.warning(f"Erro ao adicionar url '{newUrl.url_str}', {error_msg}")
             return {"message": error_msg}, 409
         
@@ -120,10 +120,10 @@ def predict(form: UrlToCheckSchema):
         session.commit()
         # Concluindo a transação
         logger.debug(f"Adicionado url de nome: '{newUrl.url_str}'")
-        return {url:newUrl.url_str, status:newUrl.url_predic}, 200
+        return apresenta_url(newUrl), 200
     
     # Caso ocorra algum erro na adição
     except Exception as e:
-        error_msg = "Não foi possível salvar novo url :/"
-        logger.warning(f"Erro ao adicionar url '{paciente.name}', {error_msg}")
-        return {"message": error_msg, "exception": e}, 400
+        error_msg = "Não foi possível salvar novo URL :/"
+        logger.warning(f"Erro ao adicionar URL: '{newUrl.url_str}', {error_msg}")
+        return {"message": error_msg}, 400

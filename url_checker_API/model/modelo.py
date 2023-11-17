@@ -41,4 +41,8 @@ class Model:
 
         # Faremos o reshape para que o modelo entenda que estamos passando
         predict_phishing = model.predict(X_input.reshape(1, -1))
-        return int(predict_phishing[0])
+        if predict_phishing[0] == 'phishing':
+            result = 1
+        elif predict_phishing[0] == 'legitimate':
+            result = 0
+        return result

@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-# from model.url_check import UrlModel
+from model.url_check import UrlModel
 
 
 class UrlSchema(BaseModel):
@@ -40,5 +40,29 @@ class UrlToCheckSchema(BaseModel):
     nb_semicolumn: int = 0
     nb_dollar: int = 0
     nb_www: int = 0
-    http_in_path: int = 0 
+    http_in_path: int = 0
+    
+# Apresenta apenas os dados de um url    
+def apresenta_url(url: UrlModel):
+    """ Retorna uma representação do url seguindo o schema definido em
+        UrlSchema.
+    """
+    return {
+        "url_str": url.url_str,
+        "length_url": url.length_url,
+        "length_hostname": url.length_hostname,
+        "nb_dots": url.nb_dots,
+        "nb_hyphens": url.nb_hyphens, 
+        "nb_underscore": url.nb_underscore,
+        "nb_tilde": url.nb_tilde,
+        "nb_percent": url.nb_percent,
+        "nb_slash": url.nb_slash,
+        "nb_colon": url.nb_colon,
+        "nb_comma": url.nb_comma,
+        "nb_semicolumn": url.nb_semicolumn,
+        "nb_dollar": url.nb_dollar,
+        "nb_www": url.nb_www,
+        "http_in_path": url.http_in_path,
+        "url_predic": url.url_predic
+    }
 
