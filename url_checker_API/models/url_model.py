@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, Integer
-from model import Base
+from models import Base
 
 
 class UrlModel(Base):

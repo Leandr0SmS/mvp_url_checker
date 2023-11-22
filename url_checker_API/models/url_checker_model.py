@@ -27,12 +27,9 @@ class Url_checker():
         # Get the length of the origin part of the URL
         url_origin_len = len(parsed_url.scheme) + len(parsed_url.netloc)
         # Extract the path
-        path = url[url_origin_len:]
+        path = self.url_str[url_origin_len:]
         reg_exp = re.compile("http")
-        print(path)
-        print({"regexp": reg_exp})
         found = reg_exp.findall(path)
-        print(path)
         if found:
             return len(found)
         else:
@@ -54,7 +51,7 @@ class Url_checker():
             "nb_comma": self.url_nbCount_char(","),
             "nb_semicolumn": self.url_nbCount_char(";"),
             "nb_dollar": self.url_nbCount_char("$", True),
-            "nb_space": self.url_nbCount_char("\s", True),
+            "nb_space": self.url_nbCount_char(" ", True),
             "nb_www": self.url_nbCount_char("www"),
-            "hhtp_in_path": self.find_http_in_path()
+            "http_in_path": self.find_http_in_path()
         }

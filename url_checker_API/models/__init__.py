@@ -4,9 +4,10 @@ from sqlalchemy import create_engine
 import os
 
 # importando os elementos definidos no modelo
-from model.base import Base
-from model.url_model import UrlModel
-from model.modelo import Model
+from models.base import Base
+from models.url_model import UrlModel
+from models.url_checker_model import Url_checker
+from models.modelo import Model
 
 
 db_path = "database/"

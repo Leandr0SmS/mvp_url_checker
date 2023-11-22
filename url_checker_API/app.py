@@ -1,7 +1,7 @@
 from flask_openapi3 import OpenAPI, Info, Tag
 from flask import redirect, jsonify
 
-from model import Session, Model, UrlModel
+from models import Session, Model, UrlModel, Url_checker
 from schemas import *
 from logger import logger
 from flask_cors import CORS
