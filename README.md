@@ -1,4 +1,4 @@
-# MVP Canteiro SAF - API
+# MVP URL Checker
 
     API elaborada para conclusão da disciplina de Engenharia de Software para Sistemas Inteligentes da Pós graduação Engenharia de software da PUC Rio.
 
@@ -8,7 +8,7 @@ Este projeto aplica um modelo de classificação de machine learning para identi
 
 O projeto permite ao usuário:
 - Inserir/Excluir URL;
-- Receber previsão de malicioso ou verdadeiro.s
+- Receber previsão de malicioso ou verdadeiro.
 
 ## Conteúdo
 
