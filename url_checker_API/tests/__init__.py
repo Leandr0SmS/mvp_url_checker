@@ -1,1 +1,0 @@
-from models.url_checker_model import Url_checker

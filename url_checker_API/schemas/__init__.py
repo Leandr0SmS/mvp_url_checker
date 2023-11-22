@@ -1,3 +1,3 @@
-from schemas.url_schema import UrlSchema, UrlToCheckSchema, apresenta_url
+from schemas.url_schema import UrlSchema, UrlSchema, apresenta_url, UrlStringToCheckSchema
 
 from schemas.error import ErrorSchema

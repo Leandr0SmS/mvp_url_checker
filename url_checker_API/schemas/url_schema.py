@@ -23,8 +23,8 @@ class UrlSchema(BaseModel):
     url_predic: int = 1
     
 
-class UrlToCheckSchema(BaseModel):
-    """ Define como deve ser o url
+class UrlSchema(BaseModel):
+    """ Define como deve ser o url de input para o modelo de ML
     """
     url_str: str = "https://eusa-lombo.firebaseapp.com/"
     length_url: int = 35
@@ -41,6 +41,11 @@ class UrlToCheckSchema(BaseModel):
     nb_dollar: int = 0
     nb_www: int = 0
     http_in_path: int = 0
+    
+class UrlStringToCheckSchema(BaseModel):
+    """ Define input do front end
+    """
+    url_str: str = "https://eusa-lombo.firebaseapp.com/"
     
 # Apresenta apenas os dados de um url    
 def apresenta_url(url: UrlModel):

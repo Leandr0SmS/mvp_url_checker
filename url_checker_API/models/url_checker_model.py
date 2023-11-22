@@ -15,7 +15,6 @@ class Url_checker():
             reg_exp = re.compile(re.escape(char))
         else:
             reg_exp = re.compile(char)
-
         found = reg_exp.findall(self.url_str)
         if found:
             return len(found)
@@ -38,7 +37,7 @@ class Url_checker():
 
     def url_infos(self):
         return {
-            "url": self.url_str,
+            "url_str": self.url_str,
             "length_url": len(self.url_str),
             "length_hostname": self.hostname_length(),
             "nb_dots": self.url_nbCount_char(".", True),

@@ -33,7 +33,7 @@ def home():
 # Rota de adição de paciente
 @app.post('/url_check', tags=[url_data],
           responses={"200": UrlSchema, "400": ErrorSchema, "409": ErrorSchema})
-def predict(form: UrlToCheckSchema):
+def predict(form: UrlStringToCheckSchema):
     """Adiciona um novo url à base de dados
     Retorna uma representação dos url e a previsão de phishig.
     
@@ -82,24 +82,29 @@ def predict(form: UrlToCheckSchema):
     modelo = Model.carrega_modelo(ml_path)
     print("Modelo Instanciado!!")
     
-    predicao = Model.preditor(modelo, form)
+    url_to_model = Url_checker(form.url_str).url_infos()
+    
+    predicao = Model.preditor(modelo, url_to_model)
+    
+    print(url_to_model)
+    print(url_to_model["url_str"])
     
     newUrl = UrlModel(
-        url_str=form.url_str,
-        length_url=form.length_url,
-        length_hostname=form.length_hostname,
-        nb_dots=form.nb_dots,
-        nb_hyphens=form.nb_hyphens,
-        nb_underscore=form.nb_underscore,
-        nb_tilde=form.nb_tilde,
-        nb_percent=form.nb_percent,
-        nb_slash=form.nb_slash,
-        nb_colon=form.nb_colon,
-        nb_comma=form.nb_comma,
-        nb_semicolumn=form.nb_semicolumn,
-        nb_dollar=form.nb_dollar,
-        nb_www=form.nb_www,
-        http_in_path=form.http_in_path,
+        url_str=url_to_model["url_str"],
+        length_url=url_to_model["length_url"],
+        length_hostname=url_to_model["length_hostname"],
+        nb_dots=url_to_model["nb_dots"],
+        nb_hyphens=url_to_model["nb_hyphens"],
+        nb_underscore=url_to_model["nb_underscore"],
+        nb_tilde=url_to_model["nb_tilde"],
+        nb_percent=url_to_model["nb_percent"],
+        nb_slash=url_to_model["nb_slash"],
+        nb_colon=url_to_model["nb_colon"],
+        nb_comma=url_to_model["nb_comma"],
+        nb_semicolumn=url_to_model["nb_semicolumn"],
+        nb_dollar=url_to_model["nb_dollar"],
+        nb_www=url_to_model["nb_www"],
+        http_in_path=url_to_model["http_in_path"],
         url_predic=predicao
     )
     logger.debug(f"Adicionando url: '{newUrl.url_str}'")
@@ -108,8 +113,8 @@ def predict(form: UrlToCheckSchema):
         # Criando conexão com a base
         session = Session()
         
-        # Checando se paciente já existe na base
-        if session.query(UrlModel).filter(newUrl.url_str == form.url_str).first():
+        # Checando se url já existe na base
+        if session.query(UrlModel).filter(UrlModel.url_str == newUrl.url_str).first():
             error_msg = "Url já existente na base :/"
             logger.warning(f"Erro ao adicionar url '{newUrl.url_str}', {error_msg}")
             return {"message": error_msg}, 409

@@ -23,20 +23,20 @@ class Model:
         """Realiza a predição de um paciente com base no modelo treinado
         """
         X_input = np.array([
-                    form.length_url,
-                    form.length_hostname,
-                    form.nb_dots,
-                    form.nb_hyphens,
-                    form.nb_underscore,
-                    form.nb_tilde,
-                    form.nb_percent,
-                    form.nb_slash,
-                    form.nb_colon,
-                    form.nb_comma,
-                    form.nb_semicolumn,
-                    form.nb_dollar,
-                    form.nb_www,
-                    form.http_in_path,
+                    form["length_url"],
+                    form["length_hostname"],
+                    form["nb_dots"],
+                    form["nb_hyphens"],
+                    form["nb_underscore"],
+                    form["nb_tilde"],
+                    form["nb_percent"],
+                    form["nb_slash"],
+                    form["nb_colon"],
+                    form["nb_comma"],
+                    form["nb_semicolumn"],
+                    form["nb_dollar"],
+                    form["nb_www"],
+                    form["http_in_path"],
                 ])
 
         # Faremos o reshape para que o modelo entenda que estamos passando
