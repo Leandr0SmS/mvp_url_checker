@@ -16,7 +16,9 @@
 
 #title {
     margin-bottom: 1rem;
+    font-size: 2.5em;
     font-weight: 400;
+    color: $dark-green;
 }
 
 #url_form {
@@ -29,26 +31,33 @@
     padding: 1em 2em;
     font-size: 1.2em;
     border-radius: 1.3em;
-    border: 1px solid rgb(113, 113, 251);
+    border: 1px solid $tiffany-blue;
     font-family: 'Kanit', sans-serif;
     font-weight: 200;
     &:active, &:focus {
-        border: 2px solid rgb(113, 113, 251);
+        border: 2px solid $jungle-green;
         outline: none; // add this
     }
 }
 
 #url_check_btn {
     padding: 0.5em 4em;
-    font-size: 1em;
+    font-size: 1.5em;
     border-radius: 0.7em;
     border: none;
-    background-color: aquamarine;
+    background-color: $jungle-green;
+    color: $isabelline;
     &:hover {
         cursor: pointer;
-        background-color: bisque;
-        -webkit-transition: background-color 50ms linear;
-        -ms-transition: background-color 500ms linear;
-        transition: background-color 500ms linear;
+        background-color: $mustard;
+        -webkit-transition: background-color 200ms linear;
+        -ms-transition: background-color 200ms linear;
+        transition: background-color 200ms linear;
+    }
+    &:active {
+        transform: scale(0.97);
+        -webkit-transition: transform 20ms linear;
+        -ms-transition: transform 20ms linear;
+        transition: transform 20ms linear;
     }
 }
