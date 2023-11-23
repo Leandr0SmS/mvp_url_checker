@@ -3,7 +3,7 @@ from models.url_checker_model import Url_checker
 
 data_json = [
     {
-      "url": "http://98.126.214.77/ap/signin?openid.pape.max_auth_age=0&amp;openid.return_to=https://www.amazon.co.jp/?ref_=nav_em_hd_re_signin&amp;openid.identity=http://specs.openid.net/auth/2.0/identifier_select&amp;openid.assoc_handle=jpflex&amp;openid.mode=checkid_setup&amp;key=a@b.c&amp;openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&amp;openid.ns=http://specs.openid.net/auth/2.0&amp;&amp;ref_=nav_em_hd_clc_signin",
+      "url_str": "http://98.126.214.77/ap/signin?openid.pape.max_auth_age=0&amp;openid.return_to=https://www.amazon.co.jp/?ref_=nav_em_hd_re_signin&amp;openid.identity=http://specs.openid.net/auth/2.0/identifier_select&amp;openid.assoc_handle=jpflex&amp;openid.mode=checkid_setup&amp;key=a@b.c&amp;openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&amp;openid.ns=http://specs.openid.net/auth/2.0&amp;&amp;ref_=nav_em_hd_clc_signin",
       "length_url": 430,
       "length_hostname": 13,
       "nb_dots": 24,
@@ -22,7 +22,7 @@ data_json = [
       "status": "phishing"
     },
     {
-      "url": "http://103.75.1.198/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https://www.amazon.co.jp/?ref_=nav_em_hd_re_signin&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.assoc_handle=jpflex&openid.mode=checkid_setup&key=a@b.c&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.ns=http://specs.openid.net/auth/2.0&&ref_=nav_em_hd_clc_signin",
+      "url_str": "http://103.75.1.198/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https://www.amazon.co.jp/?ref_=nav_em_hd_re_signin&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.assoc_handle=jpflex&openid.mode=checkid_setup&key=a@b.c&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.ns=http://specs.openid.net/auth/2.0&&ref_=nav_em_hd_clc_signin",
       "length_url": 393,
       "length_hostname": 12,
       "nb_dots": 24,
@@ -41,7 +41,7 @@ data_json = [
       "status": "phishing"
     },
     {
-      "url": "http://67.229.29.8/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https://www.amazon.co.jp/?ref_=nav_em_hd_re_signin&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.assoc_handle=jpflex&openid.mode=checkid_setup&key=a@b.c&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.ns=http://specs.openid.net/auth/2.0&&ref_=nav_em_hd_clc_signin",
+      "url_str": "http://67.229.29.8/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https://www.amazon.co.jp/?ref_=nav_em_hd_re_signin&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.assoc_handle=jpflex&openid.mode=checkid_setup&key=a@b.c&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.ns=http://specs.openid.net/auth/2.0&&ref_=nav_em_hd_clc_signin",
       "length_url": 392,
       "length_hostname": 11,
       "nb_dots": 24,
@@ -60,7 +60,7 @@ data_json = [
       "status": "phishing"
     },
     {
-      "url": "http://174.139.46.123/ap/signin?key=a@b.c&openid.assoc_handle=jpflex&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.mode=checkid_setup&openid.ns=http://specs.openid.net/auth/2.0&openid.pape.max_auth_age=0&openid.return_to=https://www.amazon.co.jp/?ref_%3Dnav_em_hd_re_signin&ref_=nav_em_hd_clc_signin",
+      "url_str": "http://174.139.46.123/ap/signin?key=a@b.c&openid.assoc_handle=jpflex&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.mode=checkid_setup&openid.ns=http://specs.openid.net/auth/2.0&openid.pape.max_auth_age=0&openid.return_to=https://www.amazon.co.jp/?ref_%3Dnav_em_hd_re_signin&ref_=nav_em_hd_clc_signin",
       "length_url": 396,
       "length_hostname": 14,
       "nb_dots": 24,
@@ -79,7 +79,7 @@ data_json = [
       "status": "phishing"
     },
     {
-      "url": "http://nbcnightlynews.tumblr.com/",
+      "url_str": "http://nbcnightlynews.tumblr.com/",
       "length_url": 33,
       "length_hostname": 25,
       "nb_dots": 2,
@@ -98,7 +98,7 @@ data_json = [
       "status": "legitimate"
     },
     {
-      "url": "http://16quotes.com/quotes/tag/passivity/",
+      "url_str": "http://16quotes.com/quotes/tag/passivity/",
       "length_url": 41,
       "length_hostname": 12,
       "nb_dots": 1,
@@ -117,7 +117,7 @@ data_json = [
       "status": "legitimate"
     },
     {
-      "url": "http://www.roommanager.com.au/",
+      "url_str": "http://www.roommanager.com.au/",
       "length_url": 30,
       "length_hostname": 22,
       "nb_dots": 3,
@@ -136,7 +136,7 @@ data_json = [
       "status": "legitimate"
     },
     {
-      "url": "https://www.pnp.co.za/welcome",
+      "url_str": "https://www.pnp.co.za/welcome",
       "length_url": 29,
       "length_hostname": 13,
       "nb_dots": 3,
@@ -159,7 +159,7 @@ data_json = [
 def test_checker_url_model():
     for url_data in data_json:
         url_data.pop("status")
-        url_test = Url_checker(url_data["url"]).url_infos()
+        url_test = Url_checker(url_data["url_str"]).url_infos()
         print(url_test)
         print(url_data)
         assert url_test == url_data
