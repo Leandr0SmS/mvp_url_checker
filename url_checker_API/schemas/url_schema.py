@@ -1,4 +1,5 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
+from urllib.parse import urlparse
 from models.url_model import UrlModel
 
 
@@ -45,6 +46,14 @@ class UrlSchema(BaseModel):
 class UrlStringToCheckSchema(BaseModel):
     """ Define input do front end
     """
+    
+    @validator('url_str')
+    def validate_url_str(cls, v):
+        parsed_url = urlparse(v)
+        if all([parsed_url.scheme, parsed_url.netloc]):
+            return v
+        raise ValueError("URL inválido")
+    
     url_str: str = "https://eusa-lombo.firebaseapp.com/"
     
 # Apresenta apenas os dados de um url    

@@ -55,9 +55,6 @@ def predict(form: UrlStringToCheckSchema):
     
     predicao = Model.preditor(modelo, url_to_model)
     
-    print(url_to_model)
-    print(url_to_model["url_str"])
-    
     newUrl = UrlModel(
         url_str=url_to_model["url_str"],
         length_url=url_to_model["length_url"],
