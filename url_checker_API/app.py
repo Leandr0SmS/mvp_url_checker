@@ -40,37 +40,6 @@ def predict(form: UrlStringToCheckSchema):
     ## Args:
         url_str (str): String que
             representa um URL
-        length_url (int):
-            length of url_str
-        length_hostname (int):
-            length of url_str host name
-        nb_dots (int):
-            number of dots in ulr_str
-        nb_hyphens (int):
-            number od hypens in ulr_str
-        nb_underscore (int):
-            number of underscore in ulr_str
-        nb_tilde (int):
-            number of tilde in ulr_str
-        nb_percent (int):
-            number of percent in ulr_str
-        nb_slash (int):
-            number of slash in ulr_str
-        nb_colon (int):
-            number of colon in ulr_str
-        nb_comma (int):
-            number of comma in ulr_str
-        nb_semicolumn (int):
-            number of semicolumn in ulr_st
-        nb_dollar (int):
-            number of dollar in ulr_st
-        nb_www (int):
-            number of www in ulr_st
-        http_in_path (int):
-            number of http in the path of url_str
-        url_predic (int):
-            0 - legitimo
-            1 - phishing
         
     Returns:
         dict: url_str and url_predic
@@ -115,9 +84,8 @@ def predict(form: UrlStringToCheckSchema):
         
         # Checando se url já existe na base
         if session.query(UrlModel).filter(UrlModel.url_str == newUrl.url_str).first():
-            error_msg = "Url já existente na base :/"
-            logger.warning(f"Erro ao adicionar url '{newUrl.url_str}', {error_msg}")
-            return {"message": error_msg}, 409
+            logger.debug(f"Url ja exista na base:'{newUrl.url_str}'")
+            return apresenta_url(newUrl), 200
         
         # Adicionando paciente
         session.add(newUrl)
