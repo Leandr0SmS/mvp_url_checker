@@ -1,7 +1,8 @@
-const { useState, useEffect } = React;
+import { config } from "./config.js";
+const { useState } = React;
 const { createRoot } = ReactDOM;
 
-const UrlCheck = ({onClickHandle, inputChangeHandler, inputValue}) => {
+function UrlCheck({ onClickHandle, inputChangeHandler, inputValue }) {
     return (
         <form id="url_form">
             <input 
@@ -22,24 +23,34 @@ const UrlCheck = ({onClickHandle, inputChangeHandler, inputValue}) => {
     )
 }
 
-const App = () => {
+function App() {
 
     const [urlToCheck, setUrlToCheck] = useState("");
     const [urlStatus, setUrlStatus] = useState("");
 
-    const handleInputChange = (e) => {
+    const handleCheckClick = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+  
+        formData.append('url_str', urlToCheck);
+
+        const response = await fetch(`${config.baseUrl}/url_check`, {
+            method: 'post',
+            body: formData
+          })
+          if (!response.ok) {
+            throw new Error(`${response.status}`);
+          }
+          const resJson = await response.json();
+          setUrlStatus(resJson)
+    };
+
+    function handleInputChange(e) {
         setUrlToCheck(e.target.value);
     }
 
-    const handleCheckClick = () => {
-        if (urlToCheck) {
-            const result = checkerURL(urlToCheck);
-            setUrlStatus(result);
-            console.log(`URL Checked: ${result.url}`)
-        } else {
-            console.log(`URL Checked: Fail`)
-        }
-    }
+    console.log(urlStatus)
 
     return (
         <React.Fragment>
@@ -49,7 +60,13 @@ const App = () => {
                 inputValue={urlToCheck}
                 onClickHandle={handleCheckClick}
             />
-            <h2>{urlStatus}</h2>
+            {
+                urlStatus
+                ? urlStatus.url_predic == 1
+                    ? <h2>Phishing</h2>
+                    : <h2>Good</h2>
+                : undefined
+            }
         </React.Fragment>
     )
 }
