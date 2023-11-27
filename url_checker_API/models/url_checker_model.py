@@ -34,6 +34,25 @@ class Url_checker():
         else:
             return 0
 
+    def url_to_check(self):
+        return {
+            "length_url": len(self.url_str),
+            "length_hostname": self.hostname_length(),
+            "nb_dots": self.url_nbCount_char(".", True),
+            "nb_hyphens": self.url_nbCount_char("-"),
+            "nb_underscore": self.url_nbCount_char("_", True),
+            "nb_tilde": self.url_nbCount_char("~"),
+            "nb_percent": self.url_nbCount_char("%"),
+            "nb_slash": self.url_nbCount_char("/", True),
+            "nb_colon": self.url_nbCount_char(":"),
+            "nb_comma": self.url_nbCount_char(","),
+            "nb_semicolumn": self.url_nbCount_char(";"),
+            "nb_dollar": self.url_nbCount_char("$", True),
+            "nb_space": self.url_nbCount_char(" ", True),
+            "nb_www": self.url_nbCount_char("www"),
+            "nb_com": self.url_nbCount_char("com"),
+            "http_in_path": self.find_http_in_path()
+        }
 
     def url_infos(self):
         return {
@@ -52,5 +71,6 @@ class Url_checker():
             "nb_dollar": self.url_nbCount_char("$", True),
             "nb_space": self.url_nbCount_char(" ", True),
             "nb_www": self.url_nbCount_char("www"),
+            "nb_com": self.url_nbCount_char("com"),
             "http_in_path": self.find_http_in_path()
         }

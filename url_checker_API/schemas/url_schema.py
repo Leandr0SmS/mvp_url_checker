@@ -19,7 +19,9 @@ class UrlSchema(BaseModel):
     nb_comma: int = 0
     nb_semicolumn: int = 0
     nb_dollar: int = 0
+    nb_space: int = 0
     nb_www: int = 0
+    nb_com: int = 1
     http_in_path: int = 0 
     url_predic: int = 1
     
@@ -40,7 +42,9 @@ class UrlSchema(BaseModel):
     nb_comma: int = 0
     nb_semicolumn: int = 0
     nb_dollar: int = 0
+    nb_space: int = 0
     nb_www: int = 0
+    nb_com: int = 1
     http_in_path: int = 0
     
 class UrlStringToCheckSchema(BaseModel):
@@ -75,7 +79,9 @@ def apresenta_url(url: UrlModel):
         "nb_comma": url.nb_comma,
         "nb_semicolumn": url.nb_semicolumn,
         "nb_dollar": url.nb_dollar,
+        "nb_space": url.nb_space,
         "nb_www": url.nb_www,
+        "nb_com": url.nb_com,
         "http_in_path": url.http_in_path,
         "url_predic": url.url_predic
     }

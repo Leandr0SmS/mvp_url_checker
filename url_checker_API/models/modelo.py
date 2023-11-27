@@ -8,18 +8,27 @@ class Model:
     
     def carrega_modelo(path):
         """
-        Carrega modelo do .pkl file
+        Carrega modelo do .joblib file
         """
         
-        if path.endswith('.pkl'):
-            model = pickle.load(open(path, 'rb'))
-        elif path.endswith('.joblib'):
-            model = joblib.load(path)
+        if path.endswith('.joblib'):
+            modelo = joblib.load(path)
         else:
             raise Exception('Formato de arquivo não suportado')
-        return model
+        return modelo
     
-    def preditor(model, form):
+    def carrega_escala(path):
+        """
+        Carrega escala do .joblib file
+        """
+        
+        if path.endswith('.joblib'):
+            escala = joblib.load(path)
+        else:
+            raise Exception('Formato de arquivo não suportado')
+        return escala
+    
+    def preditor(model, escala, form):
         """Realiza a predição de um paciente com base no modelo treinado
         """
         X_input = np.array([
@@ -35,12 +44,18 @@ class Model:
                     form["nb_comma"],
                     form["nb_semicolumn"],
                     form["nb_dollar"],
+                    form["nb_space"],
                     form["nb_www"],
+                    form["nb_com"],
                     form["http_in_path"],
                 ])
 
+        # Ajuste de escala
+        escalaEntradaX = escala.transform([X_input])
+
         # Faremos o reshape para que o modelo entenda que estamos passando
-        predict_phishing = model.predict(X_input.reshape(1, -1))
+        predict_phishing = model.predict(escalaEntradaX)
+        print(predict_phishing)
         if predict_phishing[0] == 'phishing':
             result = 1
         elif predict_phishing[0] == 'legitimate':

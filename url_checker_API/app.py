@@ -47,16 +47,18 @@ def predict(form: UrlStringToCheckSchema):
     
     print("Instanciando modelo...")
     # Carregando modelo
-    ml_path = './ml_model/model_url_checker.joblib'
-    modelo = Model.carrega_modelo(ml_path)
+    modelo_path = './ml_model/model_url_checker.joblib'
+    modelo = Model.carrega_modelo(modelo_path)
+    escala_path = './ml_model/scale_url_checker.joblib'
+    escala = Model.carrega_escala(escala_path)
     print("Modelo Instanciado!!")
     
-    url_to_model = Url_checker(form.url_str).url_infos()
+    url_to_model = Url_checker(form.url_str).url_to_check()
     
-    predicao = Model.preditor(modelo, url_to_model)
-    
+    predicao = Model.preditor(modelo, escala, url_to_model)
+
     newUrl = UrlModel(
-        url_str=url_to_model["url_str"],
+        url_str=form.url_str,
         length_url=url_to_model["length_url"],
         length_hostname=url_to_model["length_hostname"],
         nb_dots=url_to_model["nb_dots"],
@@ -69,7 +71,9 @@ def predict(form: UrlStringToCheckSchema):
         nb_comma=url_to_model["nb_comma"],
         nb_semicolumn=url_to_model["nb_semicolumn"],
         nb_dollar=url_to_model["nb_dollar"],
+        nb_space=url_to_model["nb_space"],
         nb_www=url_to_model["nb_www"],
+        nb_com=url_to_model["nb_com"],
         http_in_path=url_to_model["http_in_path"],
         url_predic=predicao
     )
