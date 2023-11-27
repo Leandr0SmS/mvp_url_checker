@@ -1,21 +1,25 @@
-import { config } from "./config.js";
-const { useState } = React;
-const { createRoot } = ReactDOM;
+import { useState, Fragment } from 'react'
+import './styles/main.css'
 
-function UrlCheck({ onClickHandle, inputChangeHandler, inputValue }) {
+const baseUrl = 'http://127.0.0.1:5000/'
+
+function UrlCheck({ onSubmitHandle, inputChangeHandler, inputValue }) {
     return (
-        <form id="url_form">
+        <form 
+            id="url_form"
+            onSubmit={onSubmitHandle}
+        >
             <input 
                 className="url_input" 
                 id="url_Input" 
                 type="input"
                 onChange={inputChangeHandler}
                 value={inputValue}
+                placeholder="Adicione um URL..."
             />
             <button 
-                type="button" 
+                type="submit" 
                 id="url_check_btn"
-                onClick={onClickHandle}
             >
                 Check
             </button>
@@ -28,14 +32,15 @@ function App() {
     const [urlToCheck, setUrlToCheck] = useState("");
     const [urlStatus, setUrlStatus] = useState("");
 
-    const handleCheckClick = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async (e) => {
+
+        e.preventDefault()
 
         const formData = new FormData();
   
         formData.append('url_str', urlToCheck);
 
-        const response = await fetch(`${config.baseUrl}/url_check`, {
+        const response = await fetch(`${baseUrl}/url_check`, {
             method: 'post',
             body: formData
           })
@@ -53,12 +58,13 @@ function App() {
     console.log(urlStatus)
 
     return (
-        <React.Fragment>
+        <Fragment>
             <h1 id="title">URL CHECK</h1>
             <UrlCheck
                 inputChangeHandler={handleInputChange}
                 inputValue={urlToCheck}
-                onClickHandle={handleCheckClick}
+                //onClickHandle={handleCheckClick}
+                onSubmitHandle={handleSubmit}
             />
             {
                 urlStatus
@@ -67,11 +73,8 @@ function App() {
                     : <h2>Good</h2>
                 : undefined
             }
-        </React.Fragment>
+        </Fragment>
     )
 }
 
-//Render
-const app = document.getElementById('root');
-const root = createRoot(app);
-root.render(<App/>);
+export default App
