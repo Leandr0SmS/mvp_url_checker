@@ -22,17 +22,19 @@
 
 #title {
   margin-bottom: 1rem;
-  font-size: 2.5em;
-  font-weight: 400;
+  font-size: 3.5em;
+  font-weight: 700;
   color: #23362b;
 }
 
 #url_form {
-  gap: 0.5rem;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0 10rem;
 }
 
 .url_input {
-  width: 60rem;
+  width: 100%;
   padding: 1em 2em;
   font-size: 1.2em;
   border-radius: 1.3em;
@@ -61,4 +63,37 @@
 #url_check_btn:active {
   transform: scale(0.97);
   transition: transform 20ms linear;
+}
+
+@media (max-width: 1000px) {
+  #title {
+    font-size: 2.5em;
+  }
+  #url_form {
+    padding: 0 5rem;
+  }
+  .url_input {
+    padding: 0.7em 1em;
+    font-size: 1em;
+  }
+  #url_check_btn {
+    padding: 0.5em 3em;
+    font-size: 1.2em;
+  }
+}
+@media (max-width: 650px) {
+  #title {
+    font-size: 2em;
+  }
+  #url_form {
+    padding: 0 1rem;
+  }
+  .url_input {
+    padding: 0.3em 0.8em;
+    font-size: 0.9em;
+  }
+  #url_check_btn {
+    padding: 0.3em 2em;
+    font-size: 1em;
+  }
 }/*# sourceMappingURL=main.css.map */

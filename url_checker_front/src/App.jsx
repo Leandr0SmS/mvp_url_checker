@@ -1,31 +1,8 @@
 import { useState, Fragment } from 'react'
+import UrlCheck from './components/form'
 import './styles/main.css'
 
 const baseUrl = 'http://127.0.0.1:5000/'
-
-function UrlCheck({ onSubmitHandle, inputChangeHandler, inputValue }) {
-    return (
-        <form 
-            id="url_form"
-            onSubmit={onSubmitHandle}
-        >
-            <input 
-                className="url_input" 
-                id="url_Input" 
-                type="input"
-                onChange={inputChangeHandler}
-                value={inputValue}
-                placeholder="Adicione um URL..."
-            />
-            <button 
-                type="submit" 
-                id="url_check_btn"
-            >
-                Check
-            </button>
-        </form>
-    )
-}
 
 function App() {
 
@@ -63,7 +40,6 @@ function App() {
             <UrlCheck
                 inputChangeHandler={handleInputChange}
                 inputValue={urlToCheck}
-                //onClickHandle={handleCheckClick}
                 onSubmitHandle={handleSubmit}
             />
             {
