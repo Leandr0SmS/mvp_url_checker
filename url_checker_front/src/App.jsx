@@ -1,5 +1,6 @@
 import { useState, Fragment } from 'react'
-import UrlCheck from './components/form'
+import UrlCheck from './components/Form'
+import Result from './components/Result'
 import './styles/main.css'
 
 const baseUrl = 'http://127.0.0.1:5000/'
@@ -44,9 +45,9 @@ function App() {
             />
             {
                 urlStatus
-                ? urlStatus.url_predic == 1
-                    ? <h2>Phishing</h2>
-                    : <h2>Good</h2>
+                ? <Result
+                    status={urlStatus}
+                />
                 : undefined
             }
         </Fragment>
