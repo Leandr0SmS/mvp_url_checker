@@ -18,6 +18,7 @@ data_json = [
       "nb_dollar": 0,
       "nb_space": 0,
       "nb_www": 1,
+      'nb_com': 0,
       "http_in_path": 4,
       "status": "phishing"
     },
@@ -37,6 +38,7 @@ data_json = [
       "nb_dollar": 0,
       "nb_space": 0,
       "nb_www": 1,
+      'nb_com': 0,
       "http_in_path": 4,
       "status": "phishing"
     },
@@ -56,6 +58,7 @@ data_json = [
       "nb_dollar": 0,
       "nb_space": 0,
       "nb_www": 1,
+      'nb_com': 0,
       "http_in_path": 4,
       "status": "phishing"
     },
@@ -75,6 +78,7 @@ data_json = [
       "nb_dollar": 0,
       "nb_space": 0,
       "nb_www": 1,
+      'nb_com': 0,
       "http_in_path": 4,
       "status": "phishing"
     },
@@ -94,6 +98,7 @@ data_json = [
       "nb_dollar": 0,
       "nb_space": 0,
       "nb_www": 0,
+      'nb_com': 1,
       "http_in_path": 0,
       "status": "legitimate"
     },
@@ -113,6 +118,7 @@ data_json = [
       "nb_dollar": 0,
       "nb_space": 0,
       "nb_www": 0,
+      'nb_com': 1,
       "http_in_path": 0,
       "status": "legitimate"
     },
@@ -132,6 +138,7 @@ data_json = [
       "nb_dollar": 0,
       "nb_space": 0,
       "nb_www": 1,
+      'nb_com': 1,
       "http_in_path": 0,
       "status": "legitimate"
     },
@@ -151,6 +158,7 @@ data_json = [
       "nb_dollar": 0,
       "nb_space": 0,
       "nb_www": 1,
+      'nb_com': 1,
       "http_in_path": 0,
       "status": "legitimate"
     }
