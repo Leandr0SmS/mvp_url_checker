@@ -25,12 +25,12 @@ class UrlModel(Base):
     http_in_path = Column("http_in_path", Integer, nullable=False)
     url_predic = Column(Integer, nullable=False)
 
-
-    def __init__(self, url_str:str, length_url:int, length_hostname:int,
-                nb_dots:int, nb_hyphens:int, nb_underscore:int, nb_tilde:int, 
-                nb_percent:int,nb_slash:int, nb_colon:int, nb_comma:int, 
-                nb_semicolumn:int, nb_dollar:int, nb_space:int, nb_www:int, 
-                nb_com:int, http_in_path:int, url_predic:int):
+    def __init__(self, url_str: str, length_url: int, length_hostname: int,
+                 nb_dots: int, nb_hyphens: int, nb_underscore: int,
+                 nb_tilde: int, nb_percent: int, nb_slash: int, nb_colon: int,
+                 nb_comma: int, nb_semicolumn: int, nb_dollar: int,
+                 nb_space: int, nb_www: int, nb_com: int, http_in_path: int,
+                 url_predic: int):
         """
         Recebe uma url e cria um modelo"
 
@@ -66,7 +66,7 @@ class UrlModel(Base):
             nb_www (int):
                 number of www in ulr_str
             nb_com (int):
-                number of com in ulr_str    
+                number of com in ulr_str
             http_in_path (int):
                 number of http in the path of url_str
             url_predic (int):

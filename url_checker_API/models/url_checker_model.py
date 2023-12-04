@@ -1,10 +1,11 @@
 import urllib.parse
 import re
 
+
 class Url_checker():
-    def __init__(self, url_input:str):
+    def __init__(self, url_input: str):
         self.url_str = url_input
-        
+
     def hostname_length(self):
         parsed_url = urllib.parse.urlparse(self.url_str)
         hostname_len = len(parsed_url.netloc)
@@ -20,7 +21,7 @@ class Url_checker():
             return len(found)
         else:
             return 0
-        
+
     def find_http_in_path(self):
         parsed_url = urllib.parse.urlparse(self.url_str)
         # Get the length of the origin part of the URL

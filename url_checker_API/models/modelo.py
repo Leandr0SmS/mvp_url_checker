@@ -1,35 +1,31 @@
 import numpy as np
-import pickle
 import joblib
-import sklearn
 
 
 class Model:
-    
+
     def carrega_modelo(path):
+        """ Carrega modelo do .joblib file
         """
-        Carrega modelo do .joblib file
-        """
-        
+
         if path.endswith('.joblib'):
             modelo = joblib.load(path)
         else:
             raise Exception('Formato de arquivo não suportado')
         return modelo
-    
+
     def carrega_escala(path):
+        """ Carrega escala do .joblib file
         """
-        Carrega escala do .joblib file
-        """
-        
+
         if path.endswith('.joblib'):
             escala = joblib.load(path)
         else:
             raise Exception('Formato de arquivo não suportado')
         return escala
-    
+
     def preditor(model, escala, form):
-        """Realiza a predição de um paciente com base no modelo treinado
+        """ Realiza a predição de um paciente com base no modelo treinado
         """
         X_input = np.array([
                     form["length_url"],

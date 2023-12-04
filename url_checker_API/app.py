@@ -1,5 +1,5 @@
 from flask_openapi3 import OpenAPI, Info, Tag
-from flask import redirect, jsonify
+from flask import redirect
 
 from models import Session, Model, UrlModel, Url_checker
 from schemas import *
@@ -12,7 +12,7 @@ CORS(app)
 
 # definindo tags
 home_tag = Tag(
-    name="Documentação", 
+    name="Documentação",
     description="Seleção de documentação: Swagger, Redoc ou RapiDoc"
     )
 url_data = Tag(
@@ -29,22 +29,22 @@ def home():
     """
     return redirect('/openapi')
 
-    
+
 # Rota de adição de paciente
 @app.post('/url_check', tags=[url_data],
           responses={"200": UrlSchema, "400": ErrorSchema, "409": ErrorSchema})
 def predict(form: UrlStringToCheckSchema):
     """Adiciona um novo url à base de dados
     Retorna uma representação dos url e a previsão de phishig.
-    
+
     ## Args:
         url_str (str): String que
             representa um URL
-        
+
     Returns:
         dict: url_str and url_predic
     """
-    
+
     print("Instanciando modelo...")
     # Carregando modelo
     modelo_path = './ml_model/model_url_checker.joblib'
@@ -52,9 +52,9 @@ def predict(form: UrlStringToCheckSchema):
     escala_path = './ml_model/scale_url_checker.joblib'
     escala = Model.carrega_escala(escala_path)
     print("Modelo Instanciado!!")
-    
+
     url_to_model = Url_checker(form.url_str).url_to_check()
-    
+
     predicao = Model.preditor(modelo, escala, url_to_model)
 
     newUrl = UrlModel(
@@ -78,16 +78,18 @@ def predict(form: UrlStringToCheckSchema):
         url_predic=predicao
     )
     logger.debug(f"Adicionando url: '{newUrl.url_str}'")
-    
+
     try:
         # Criando conexão com a base
         session = Session()
-        
+
         # Checando se url já existe na base
-        if session.query(UrlModel).filter(UrlModel.url_str == newUrl.url_str).first():
+        if session.query(UrlModel)\
+            .filter(UrlModel.url_str == newUrl.url_str)\
+                .first():
             logger.debug(f"Url ja exista na base:'{newUrl.url_str}'")
             return apresenta_url(newUrl), 200
-        
+
         # Adicionando paciente
         session.add(newUrl)
         # Efetivando o comando de adição
@@ -95,9 +97,11 @@ def predict(form: UrlStringToCheckSchema):
         # Concluindo a transação
         logger.debug(f"Adicionado url de nome: '{newUrl.url_str}'")
         return apresenta_url(newUrl), 200
-    
+
     # Caso ocorra algum erro na adição
     except Exception as e:
         error_msg = "Não foi possível salvar novo URL :/"
-        logger.warning(f"Erro ao adicionar URL: '{newUrl.url_str}', {error_msg}")
-        return {"message": error_msg}, 400
+        logger.warning(
+            f"Erro ao adicionar URL: '{newUrl.url_str}', {error_msg}"
+            )
+        return {"message": error_msg, "error": e}, 400
