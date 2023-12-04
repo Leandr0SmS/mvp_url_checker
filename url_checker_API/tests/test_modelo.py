@@ -28,16 +28,17 @@ def test_modelo_knn():
     knn_escala = Model.carrega_escala(knn_escala_path)
 
     # Obtendo as métricas do KNN
-    acuracia_knn, recall_knn, precisao_knn, f1_knn = avaliador.avaliar(
-                                                                        modelo_knn, 
-                                                                        knn_escala, 
-                                                                        X, 
-                                                                        Y
-                                                                    )
+    acuracia_knn, recall_knn, precisao_knn,\
+    f1_knn = avaliador.avaliar(
+                                modelo_knn, 
+                                knn_escala, 
+                                X, 
+                                Y
+                            )
     
     # Testando as métricas do KNN
     # Modifique as métricas de acordo com seus requisitos
-    assert acuracia_knn >= 0.65
-    assert recall_knn >= 0.5 
-    assert precisao_knn >= 0.5 
-    assert f1_knn >= 0.5 
+    assert acuracia_knn >= 0.70
+    assert recall_knn >= 0.7 
+    assert precisao_knn >= 0.68
+    assert f1_knn >= 0.6

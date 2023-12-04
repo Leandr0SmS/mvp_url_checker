@@ -53,7 +53,7 @@ class Model:
         # Ajuste de escala
         escalaEntradaX = escala.transform([X_input])
 
-        # Faremos o reshape para que o modelo entenda que estamos passando
+        # Reshape para que o modelo
         predict_phishing = model.predict(escalaEntradaX)
         print(predict_phishing)
         if predict_phishing[0] == 'phishing':

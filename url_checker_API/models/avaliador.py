@@ -1,4 +1,5 @@
-from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
+from sklearn.metrics import accuracy_score, recall_score,\
+                            precision_score, f1_score
 
 class Avaliador:
 
@@ -12,7 +13,7 @@ class Avaliador:
         # Ajuste de escala
         escalaEntradaX = escala.transform(X_test)
 
-        # Faremos o reshape para que o modelo entenda que estamos passando
+        # Reshape para que o modelo
         predicoes = modelo.predict(escalaEntradaX)
         
         return (accuracy_score(Y_test, predicoes),
