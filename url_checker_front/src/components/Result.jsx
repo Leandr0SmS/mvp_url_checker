@@ -3,7 +3,7 @@ import '../styles/main.css'
 function Result({ status }) {
     return (
         <div id="result--div">
-            <h1 class="result--status">
+            <h1 className="result--status">
                 {
                     status == 1
                         ? "Phishing"
