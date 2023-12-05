@@ -38,7 +38,7 @@ function App() {
         } catch (error) {
             setError(() => ({
                 error: true,
-                status: "Formato Url não suportado."
+                status: "Formato Url não suportado. Adicione 'https://'"
             }));
         }
       };
@@ -63,6 +63,7 @@ function App() {
     };
 
     function handleInputChange(e) {
+        setUrlStatus("")
         setError(initError)
         setUrlToCheck(e.target.value);
     }

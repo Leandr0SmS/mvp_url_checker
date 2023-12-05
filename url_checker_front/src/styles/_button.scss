@@ -1,0 +1,36 @@
+#url_check_btn {
+    padding: 0.5em 4em;
+    font-size: 1.5em;
+    border-radius: 0.7em;
+    border: none;
+    background-color: $jungle-green;
+    color: $isabelline;
+    @extend %shadow;
+    &:hover {
+        cursor: pointer;
+        background-color: $mustard;
+        -webkit-transition: background-color 200ms linear;
+        -ms-transition: background-color 200ms linear;
+        transition: background-color 200ms linear;
+    }
+    &:active {
+        transform: scale(0.97);
+        -webkit-transition: transform 20ms linear;
+        -ms-transition: transform 20ms linear;
+        transition: transform 20ms linear;
+    }
+}
+
+@media (max-width: 1000px) {
+    #url_check_btn {
+        padding: 0.5em 3em;
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 650px) {
+    #url_check_btn {
+        padding: 0.3em 2em;
+        font-size: 1em;
+    }
+}
