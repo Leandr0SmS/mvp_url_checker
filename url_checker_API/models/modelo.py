@@ -14,17 +14,7 @@ class Model:
             raise Exception('Formato de arquivo não suportado')
         return modelo
 
-    def carrega_escala(path):
-        """ Carrega escala do .joblib file
-        """
-
-        if path.endswith('.joblib'):
-            escala = joblib.load(path)
-        else:
-            raise Exception('Formato de arquivo não suportado')
-        return escala
-
-    def preditor(model, escala, form):
+    def preditor(model, form):
         """ Realiza a predição de um paciente com base no modelo treinado
         """
         X_input = np.array([
@@ -46,11 +36,8 @@ class Model:
                     form["http_in_path"],
                 ])
 
-        # Ajuste de escala
-        escalaEntradaX = escala.transform([X_input])
-
         # Reshape para que o modelo
-        predict_phishing = model.predict(escalaEntradaX)
+        predict_phishing = model.predict([X_input])
         print(predict_phishing)
         if predict_phishing[0] == 'phishing':
             result = 1

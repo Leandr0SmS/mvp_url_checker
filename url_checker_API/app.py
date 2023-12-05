@@ -47,15 +47,13 @@ def predict(form: UrlStringToCheckSchema):
 
     print("Instanciando modelo...")
     # Carregando modelo
-    modelo_path = './ml_model/model_url_checker.joblib'
+    modelo_path = './ml_model/pipe_knn__url_checker.joblib'
     modelo = Model.carrega_modelo(modelo_path)
-    escala_path = './ml_model/scale_url_checker.joblib'
-    escala = Model.carrega_escala(escala_path)
     print("Modelo Instanciado!!")
 
     url_to_model = Url_checker(form.url_str).url_to_check()
 
-    predicao = Model.preditor(modelo, escala, url_to_model)
+    predicao = Model.preditor(modelo, url_to_model)
 
     newUrl = UrlModel(
         url_str=form.url_str,
