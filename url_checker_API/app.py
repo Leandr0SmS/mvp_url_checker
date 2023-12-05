@@ -2,7 +2,8 @@ from flask_openapi3 import OpenAPI, Info, Tag
 from flask import redirect
 
 from models import Session, Model, UrlModel, Url_checker
-from schemas import *
+from schemas import UrlStringToCheckSchema, UrlSchema, \
+    ErrorSchema, apresenta_url
 from logger import logger
 from flask_cors import CORS
 
