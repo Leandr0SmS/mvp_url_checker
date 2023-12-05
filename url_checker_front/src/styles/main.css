@@ -38,13 +38,29 @@
   padding: 1em 2em;
   font-size: 1.2em;
   border-radius: 1.3em;
-  border: 1px solid #9bc7c5;
   font-family: "Kanit", sans-serif;
   font-weight: 200;
 }
-.url_input:active, .url_input:focus {
+
+.url_input_norm {
+  border: 1px solid #9bc7c5;
+}
+.url_input_norm:active, .url_input_norm:focus {
   border: 2px solid #1bb28c;
   outline: none;
+}
+
+.url_input_error {
+  border: 2px solid #e86a58;
+}
+.url_input_error:active, .url_input_error:focus {
+  border: 2px solid #e86a58;
+  outline: none;
+}
+
+#erro--status {
+  color: #e86a58;
+  font-size: 1.2em;
 }
 
 #url_check_btn {

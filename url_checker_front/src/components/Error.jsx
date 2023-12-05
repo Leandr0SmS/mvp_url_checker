@@ -3,7 +3,7 @@ import '../styles/main.css'
 function Errors({ error }) {
     return (
         <div id="error--div">
-            <p className="erro--status">
+            <p id="erro--status">
                 {
                     error.status == 422
                         ? "Erro no formato de url... Inicie com 'https://'"

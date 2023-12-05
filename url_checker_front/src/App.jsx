@@ -22,24 +22,24 @@ function App() {
         console.log(formData)
 
         try {
-          const response = await fetch(`${baseUrl}/url_check`, {
+            const response = await fetch(`${baseUrl}/url_check`, {
                                         method: 'post',
                                         body: formData
                                     });
     
-          if (!response.ok) {
-            // Checkar error status
-            throw new Error(`Error! Status: ${response.status}`);
-          }
+            if (!response.ok) {
+                // Checkar error status
+                throw new Error(`Error! Status: ${response.status}`);
+            }
     
-          const result = await response.json();
-          setError(initError)
-          setUrlStatus(result);
+            const result = await response.json();
+            setError(initError)
+            setUrlStatus(result);
         } catch (error) {
-          setError(() => ({
-            error: true,
-            status: "Formato Url não suportado."
-          }));
+            setError(() => ({
+                error: true,
+                status: "Formato Url não suportado."
+            }));
         }
       };
 
@@ -74,6 +74,7 @@ function App() {
                 inputChangeHandler={handleInputChange}
                 inputValue={urlToCheck}
                 onSubmitHandle={handleSubmit}
+                error={error}
             />
             {
                 error.error

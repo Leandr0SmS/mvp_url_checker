@@ -1,13 +1,18 @@
 import '../styles/main.css'
 
-function UrlCheck({ onSubmitHandle, inputChangeHandler, inputValue }) {
+function UrlCheck({ onSubmitHandle, inputChangeHandler, inputValue, error }) {
+    
+    const inputClass = error.error
+        ? "url_input url_input_error"
+        : "url_input url_input_norm"
+    
     return (
         <form 
             id="url_form"
             onSubmit={onSubmitHandle}
         >
             <input 
-                className="url_input" 
+                className={inputClass} 
                 id="url_Input" 
                 type="input"
                 onChange={inputChangeHandler}
