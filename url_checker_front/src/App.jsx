@@ -19,8 +19,6 @@ function App() {
         const formData = new FormData();
         formData.append('url_str', urlToCheck);
 
-        console.log(formData)
-
         try {
             const response = await fetch(`${baseUrl}/url_check`, {
                                         method: 'post',
