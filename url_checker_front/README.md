@@ -19,27 +19,17 @@ O projeto permite ao usuário:
 
 ## Iniciando
 
-### Dependências
+### Instalando as dependências
 
-Será necessário:
-- [python](https://www.python.org/): Versão superior a 3.5
-- `requirements.txt` instalado.
+Para instalar as depêndencias, execute o comando abaixo:
 
-> É fortemente indicado o uso de ambientes virtuais do tipo: [virtual environments](https://docs.python.org/3/library/venv.html).
+`npm install`
 
-### Instalando Requirements
+### Executando a Aplicação
 
-Instalar dependências descritas no arquivo `requirements.txt`.
-```
-(env)$ pip install -r requirements.txt
-```
+Para executar a Aplicação Front-end, basta executar o seguinte comando:
 
-### Executando
-
-Executar o comando:
-```
-(env)$ flask run --host 0.0.0.0 --port 5000
-```
+`npm run dev`
 
 ## Autor
  
