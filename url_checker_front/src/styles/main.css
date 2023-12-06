@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;400;600&display=swap");
-#root, #url_form {
+#root, .result--div, #url_form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#url_check_btn {
+#url_check_btn, .result--div {
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -45,6 +45,35 @@
   padding: 1.5rem 0;
   color: #e86a58;
   font-size: 1.2em;
+}
+
+.result--div {
+  padding: 1rem 3rem;
+  margin-top: 1.5rem;
+  border-radius: 2rem;
+}
+
+.div-good {
+  background-color: #23362b;
+  border: 1px solid #1bb28c;
+}
+
+.div-bad {
+  background-color: #9bc7c5;
+  border: 1px solid #e86a58;
+}
+
+.result--status {
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+.good {
+  color: #1bb28c;
+}
+
+.bad {
+  color: #e86a58;
 }
 
 @media (max-width: 1000px) {

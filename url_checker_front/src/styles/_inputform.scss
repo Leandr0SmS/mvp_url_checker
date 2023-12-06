@@ -36,6 +36,37 @@
     font-size: 1.2em;
 }
 
+.result--div {
+    padding: 1rem 3rem;
+    margin-top: 1.5rem;
+    border-radius: 2rem;
+    @extend %center_elem_flex;
+    @extend %shadow;
+}
+
+.div-good {
+    background-color: $dark-green;
+    border: 1px solid $jungle-green;
+}
+
+.div-bad {
+    background-color: $tiffany-blue;
+    border: 1px solid $bittersweet;
+}
+
+.result--status {
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.good {
+    color: $jungle-green;
+}
+
+.bad {
+    color: $bittersweet;
+}
+
 @media (max-width: 1000px) {
     #url_form {
         padding: 0 5rem;

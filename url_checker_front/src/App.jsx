@@ -1,4 +1,4 @@
-import { useState, useEffect, Fragment } from 'react'
+import { useState, Fragment } from 'react'
 import UrlCheck from './components/Form'
 import Result from './components/Result'
 import Errors from './components/Error'
