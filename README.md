@@ -1,28 +1,34 @@
 # MVP URL Checker
 
-    API elaborada para conclusão da disciplina de Engenharia de Software para Sistemas Inteligentes da Pós graduação Engenharia de software da PUC Rio.
+Este projeto aplica um modelo de classificação de machine learning para identificar URLs que tenham características de Phishing.
+Aumentando a barreira de proteção dos usuários a ataques desse tipo.
 
 ## Descrição
 
-Este projeto aplica um modelo de classificação de machine learning para identificar URLs que tenham caracteristicas de Phishing.
-
 O projeto permite ao usuário:
-- Inserir/Excluir URL;
-- Receber previsão de malicioso ou verdadeiro.
+- Inserir URL.
+- Receber previsão de malicioso ou confiável.
+
+## Modelo Machine Learning
+
+O modelo foi criado em um Google Colab Notebook que pode ser acessado o link:
+
+[![Url_checker_model](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1C6tXPPxMf7I6VHd-3AstdjBoAC_Mn6OX?usp=sharing)
 
 ## Conteúdo
 
-- [API](./url_checker_API/)
-- [Front](./url_checker_front/)
-
-### Requerimentos
-
-- [Python instalado](https://www.python.org/downloads/)
+|[API](./url_checker_API/)|Aplicação feita em Python com Flaske e database Sqlite.|
+|-|-|
+|[Front-end](./url_checker_front/)|Aplicação em React e Vite|
 
 ## Iniciando
 
-- Iniciar API conforme [README](./url_checker_API/README.md)
-- Após API estar rodando, inciar o arquivo index.html em um browser.
+### API
+- Seguir instruções no [README](./url_checker_API/README.md) da API.
+- Após API estar rodando, inciar o front-end.
+
+### Front-end
+- Seguir instruções no [README](./url_checker_front/README.md) do Front-end.
 
 ## Autor
  
