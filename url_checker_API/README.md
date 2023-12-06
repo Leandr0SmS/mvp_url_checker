@@ -8,9 +8,10 @@ API implementada em Python e Flask.
 
 Este projeto aplica um modelo de classificação de machine learning para identificar URLs que tenham caracteristicas de Phishing.
 
-O projeto permite ao usuário:
-- Inserir/Excluir URL;
+O projeto permite ao usuário em uma rota POST:
+- InserirURL.
 - Receber previsão de malicioso ou verdadeiro.
+- Retorna erro caso o URL não passe do validador.
 
 ## Iniciando
 
@@ -33,14 +34,8 @@ Instalar dependências descritas no arquivo `requirements.txt`.
 
 Executar o comando:
 ```
-(env)$ flask run --host 0.0.0.0 --port 5000
+flask run --host 0.0.0.0 --port 5000
 ```
-
-Replit:
-
-[![Run on Repl.it](https://replit.com/badge/github/Leandr0SmS/puc_rio-mvp_1-back_end)](https://replit.com/new/github/Leandr0SmS/puc_rio-mvp_1-back_end)
-
-> **Banco de Dados** - Será iniciado e carregado com informações pré definidas.
 
 ## Autor
  

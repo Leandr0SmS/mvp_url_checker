@@ -43,19 +43,20 @@ def predict(form: UrlStringToCheckSchema):
             representa um URL
 
     Returns:
-        dict: url_str and url_predic
+        UrlModel
     """
 
-    print("Instanciando modelo...")
-    # Carregando modelo
+    # Carregando modelo de ML
     modelo_path = './ml_model/pipe_knn__url_checker.joblib'
     modelo = Model.carrega_modelo(modelo_path)
-    print("Modelo Instanciado!!")
 
+    # Cria uma instancia do Url_checker para ser checado
     url_to_model = Url_checker(form.url_str).url_to_check()
 
+    # Faz a predição
     predicao = Model.preditor(modelo, url_to_model)
 
+    # Cria um modelo do url para o database
     newUrl = UrlModel(
         url_str=form.url_str,
         length_url=url_to_model["length_url"],
@@ -76,9 +77,9 @@ def predict(form: UrlStringToCheckSchema):
         http_in_path=url_to_model["http_in_path"],
         url_predic=predicao
     )
-    logger.debug(f"Adicionando url: '{newUrl.url_str}'")
 
     try:
+        logger.debug(f"Adicionando url: '{newUrl.url_str}'")
         # Criando conexão com a base
         session = Session()
 
@@ -89,12 +90,12 @@ def predict(form: UrlStringToCheckSchema):
             logger.debug(f"Url ja exista na base:'{newUrl.url_str}'")
             return apresenta_url(newUrl), 200
 
-        # Adicionando paciente
+        # Adicionando url
         session.add(newUrl)
         # Efetivando o comando de adição
         session.commit()
         # Concluindo a transação
-        logger.debug(f"Adicionado url de nome: '{newUrl.url_str}'")
+        logger.debug(f"Adicionado url: '{newUrl.url_str}'")
         return apresenta_url(newUrl), 200
 
     # Caso ocorra algum erro na adição

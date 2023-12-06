@@ -30,16 +30,18 @@ class UrlStringToCheckSchema(BaseModel):
     """ Define input do front end
     """
 
+    # Valida a url_str como urllib.parse
     @validator('url_str')
     def validate_url_str(cls, v):
         parsed_url = urlparse(v)
         if all([parsed_url.scheme, parsed_url.netloc]):
             return v
         raise ValueError("URL inválido")
-    
+
     url_str: str = "https://eusa-lombo.firebaseapp.com/"
-    
-# Apresenta apenas os dados de um url    
+
+
+# Apresenta os dados de um url
 def apresenta_url(url: UrlModel):
     """ Retorna uma representação do url seguindo o schema definido em
         UrlSchema.
@@ -49,7 +51,7 @@ def apresenta_url(url: UrlModel):
         "length_url": url.length_url,
         "length_hostname": url.length_hostname,
         "nb_dots": url.nb_dots,
-        "nb_hyphens": url.nb_hyphens, 
+        "nb_hyphens": url.nb_hyphens,
         "nb_underscore": url.nb_underscore,
         "nb_tilde": url.nb_tilde,
         "nb_percent": url.nb_percent,
@@ -64,4 +66,3 @@ def apresenta_url(url: UrlModel):
         "http_in_path": url.http_in_path,
         "url_predic": url.url_predic
     }
-
