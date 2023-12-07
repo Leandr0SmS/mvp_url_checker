@@ -23,16 +23,13 @@ X, Y = pre_processador.separacao_x_y_attr(dataset)
 def test_modelo_knn():
 
     # Importando modelo de KNN e a escala
-    knn_path = './ml_model/model_url_checker.joblib'
+    knn_path = './ml_model/pipe_knn__url_checker.joblib'
     modelo_knn = Model.carrega_modelo(knn_path)
-    knn_escala_path = './ml_model/scale_url_checker.joblib'
-    knn_escala = Model.carrega_escala(knn_escala_path)
 
     # Obtendo as métricas do KNN
     acuracia_knn, recall_knn, precisao_knn, \
         f1_knn = avaliador.avaliar(
                                 modelo_knn,
-                                knn_escala,
                                 X,
                                 Y
                             )

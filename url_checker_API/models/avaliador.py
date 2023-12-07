@@ -4,18 +4,15 @@ from sklearn.metrics import accuracy_score, recall_score, \
 
 class Avaliador:
 
-    def avaliar(self, modelo, escala, X_test, Y_test):
+    def avaliar(self, modelo, X_test, Y_test):
 
         """ Predição e avaliação do modelo
         """
 
         pos_label = 'phishing'
 
-        # Ajuste de escala
-        escalaEntradaX = escala.transform(X_test)
-
         # Reshape para que o modelo
-        predicoes = modelo.predict(escalaEntradaX)
+        predicoes = modelo.predict(X_test)
 
         return (accuracy_score(Y_test, predicoes),
                 recall_score(Y_test, predicoes, pos_label=pos_label),
