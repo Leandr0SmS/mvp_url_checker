@@ -19,6 +19,11 @@ O projeto permite ao usuário:
 
 ## Iniciando
 
+### Dependências
+
+Será necessário:
+- [Node.js](https://nodejs.org/en)
+
 ### Instalando as dependências
 
 Para instalar as depêndencias, execute o comando abaixo:
