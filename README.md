@@ -15,6 +15,10 @@ O modelo foi criado em um Google Colab Notebook que pode ser acessado o link:
 
 [![Url_checker_model](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1C6tXPPxMf7I6VHd-3AstdjBoAC_Mn6OX?usp=sharing)
 
+## Video
+
+[YouTube Video](https://youtu.be/dugG6ca0zDw)
+
 ## Conteúdo
 
 |[API](./url_checker_API/)|Aplicação feita em Python com Flaske e database Sqlite.|

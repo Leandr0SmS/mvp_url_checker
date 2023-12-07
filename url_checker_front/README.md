@@ -34,7 +34,7 @@ Para instalar as depêndencias, execute o comando abaixo:
 
 Para executar a Aplicação Front-end, basta executar o seguinte comando:
 
-`npm run dev`
+`npm start`
 
 ## Autor
  
